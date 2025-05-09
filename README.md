@@ -84,12 +84,12 @@ Ingrese el artista deseado: Audien
 
 La aplicacion buscara y mostrara todas las canciones con su informacion, las cuales contengan al artista dado.
 
-**Opcion 4: Filtrar canciones por tempo**]
+**Opcion 4: Filtrar canciones por tempo**
 
 El usuario eligira una velocidad de las sgtes:
-Lentas: Tempo < 80
-Moderadas: Tempo >= 80 y Tempo < 120
-Rapidas: Tempo >= 120
+**Lentas**: Tempo < 80
+**Moderadas**: Tempo >= 80 y Tempo < 120
+**Rapidas**: Tempo >= 120
 
 ```
 Opción seleccionada: 4) Buscar por Tempo (BPM)
@@ -97,10 +97,12 @@ Ingrese la velocidad deseada (Lentas, moderadas o rapidas): mODERadas
 ```
 La aplicacion buscara y mostrara todas las canciones con su informacion, las cuales vayan a la velocidad dada.
 
+
 **Opcion 6: Salir del programa**
 
 ```
 Opción seleccionada: 6) Salir
 ```
 El programa limpia todo lo que tenga almacenado en ese momento y luego se cierra.
+
 =======
