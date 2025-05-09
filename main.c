@@ -132,7 +132,7 @@ void menuOpciones(Map *mapaGeneros, Map *mapaArtistas, List **BPMArray) {
         // Borrar cada lista en ambos mapas
         // Borrar los mapas
         limpiarPrograma(mapaGeneros, mapaArtistas, BPMArray);
-        esperarAccion();
+        puts("Saliendo del programa...");
         exit(EXIT_SUCCESS);
         break;
     }
@@ -193,7 +193,7 @@ char **leerLineaCSV(FILE *archivo, const char *separador) {
     columnaActual++;
     linea[columnaActual] = NULL;
     free(campo); // Libera la memoria del campo
-    campo = NULL;
+    campo = NULL;   
     return linea;
 }
 
@@ -234,11 +234,11 @@ char **separarString(char *cadena, const char *separador) {
             }
             result = temp;
         }
-        if (result[size] == NULL) { // Si la asignacion de memoria falla
-            perror("Error al asignar memoria para el campo");
+        result[size++] = strdup(artista);  // Se agrega el artista al array
+        if (result[size - 1] == NULL) { // Si la asignacion de memoria falla
+            perror("Error al asignar memoria para el artista");
             exit(EXIT_FAILURE);
         }
-        result[size++] = strdup(artista);  // Se agrega el artista al array
         artista = strtok(NULL, separador); // Se avanza al siguiente campo (sgte artista)
     }
     result[size] = NULL; // Marcar el final del array con un NULL
@@ -423,7 +423,7 @@ void limpiarMapaGeneros(Map *mapa) {
     Pair *i = firstMap(mapa);
     while (i != NULL) { // Itera por todo el mapa hasta llegar al final
         Pair *siguiente = nextMap(mapa); // Guarda el siguiente elemento del mapa
-        eraseMap(mapa, i -> key); // Limpia la posicion en el mapa
+        sizeDown(mapa); // Reduce el tamaño del mapa
         free(i -> key); //Libera la key
         i -> key = NULL;
         free(i -> value); // Libera el value (el List)
@@ -438,7 +438,7 @@ void limpiarMapaArtistas(Map *mapa) {
     Pair *i = firstMap(mapa); // Busca el elemento del mapa
     while (i != NULL) { // Itera por todo el mapa hasta llegar al final
         Pair *siguiente = nextMap(mapa); // Guarda el siguiente elemento del mapa
-        eraseMap(mapa, i -> key); // Limpia la posicion en el mapa
+        sizeDown(mapa); // Reduce el tamaño del mapa
         free(i -> key); //Libera la key
         i -> key = NULL;
         free(i -> value); // Libera el value (el List)
@@ -485,6 +485,7 @@ void limpiarPrograma(Map *mapaGeneros, Map *mapaArtistas, List **BPMArray) {
     free(BPMArray); // Se libera el array
     BPMArray = NULL;
  
+    // Limpieza de mapas
     limpiarMapaGeneros(mapaGeneros);
     limpiarMapaArtistas(mapaArtistas);
     free(mapaGeneros);

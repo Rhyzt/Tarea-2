@@ -89,6 +89,10 @@ void eraseMap(Map * map,  char * key) {
     }   
 }
 
+void sizeDown(Map* map) {
+    map -> size -= 1;
+}
+
 Pair *searchMap(Map *map,  char *key) {  
     int pos = hash(key, map -> capacity);
     while (map -> pares[pos] != NULL) {

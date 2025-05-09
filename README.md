@@ -39,7 +39,7 @@ Este sistema ha sido desarrollado en lenguaje C y puede ejecutarse fácilmente u
 ## Funcionalidades
 
 ### Funcionando correctamente:
-Asumiendo que el usuario nunca comete errores y entrega datos pertinentes a la app (ej: entrega un numero del 1 al 6 en un menu de 6 opciones, no entrega palabras cuando se piden numeros, etc)
+Asumiendo que el usuario nunca comete errores y entrega datos pertinentes a la app (ej: entrega un numero del 1 al 6 en un menu de 6 opciones, no entrega palabras cuando se piden numeros, etc). Ademas, solo se podran filtrar correctamente si las palabras a buscar estan conformadas por caracteres pertenecientes a la tabla ASCII [Vease](https://www.ascii-code.com)
 
 - Cargar canciones de un dataset, que tenga 20 columnas correspondientes a: id,track,artists,album_name,track_name,popularity,duration_ms,explicit,danceability,energy,key,loudness,mode,speechiness,acousticness,instrumentalness,liveness,valence,tempo,time_signature,track_genre (la primera linea se saltara ya que se asume que posee los nombres de las columnas)
 - Buscar y mostrar canciones segun el genero dado (se distinguen mayusculas de minusculas, type-sensitive).
@@ -84,12 +84,12 @@ Ingrese el artista deseado: Audien
 
 La aplicacion buscara y mostrara todas las canciones con su informacion, las cuales contengan al artista dado.
 
-**Opcion 4: Filtrar canciones por tempo**]
+**Opcion 4: Filtrar canciones por tempo**
 
 El usuario eligira una velocidad de las sgtes:
-Lentas: Tempo < 80
-Moderadas: Tempo >= 80 y Tempo < 120
-Rapidas: Tempo >= 120
+**Lentas**: Tempo < 80
+**Moderadas**: Tempo >= 80 y Tempo < 120
+**Rapidas**: Tempo >= 120
 
 ```
 Opción seleccionada: 4) Buscar por Tempo (BPM)
@@ -97,10 +97,12 @@ Ingrese la velocidad deseada (Lentas, moderadas o rapidas): mODERadas
 ```
 La aplicacion buscara y mostrara todas las canciones con su informacion, las cuales vayan a la velocidad dada.
 
+
 **Opcion 6: Salir del programa**
 
 ```
 Opción seleccionada: 6) Salir
 ```
 El programa limpia todo lo que tenga almacenado en ese momento y luego se cierra.
+
 =======

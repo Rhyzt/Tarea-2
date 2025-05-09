@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    
+    {
+      "type": "cppdbg",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/${input:executableName}.exe",
+      "preLaunchTask": "build",
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": true
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "executableName",
+      "description": "Select the executable to debug",
+      "options": [
+        "tarea2"
+      ]
+    }
+  ]
+}

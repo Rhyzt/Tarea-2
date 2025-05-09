@@ -23,6 +23,8 @@ void insertMap(Map * table, char * key, void * value);
 
 void eraseMap(Map * table, char * key);
 
+void sizeDown(Map* map);
+
 Pair *searchMap(Map * table, char * key);
 
 Pair *firstMap(Map * table);
