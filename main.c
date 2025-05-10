@@ -27,7 +27,7 @@ void buscarPorArtista(Map *mapaArtistas, char *artista); // Busca la lista del a
 void buscarPorBPM(List **BPMArray, char *velocidad); // Busca la lista del tempo especificado en la lista
 void printearCancion(Song *cancion);  // Imprime los datos de la cancion dada
 void limpiarPrograma(Map *mapaGeneros, Map *mapaArtistas, List **BPMArray); // Limpia todos los datos usados por el programa en la finalizacion de este
-void cleanList(List * list); // Limpia una lista
+void cleanList(List * list); // Limpia una lista y sus datos Song
 
 int main() {
     //freopen("entrada.txt", "r", stdin); //Usado para debugear
@@ -249,7 +249,7 @@ char **separarString(char *cadena, const char *separador) {
 
 int contarColumnas(char **linea) {
     int columnas = 0;
-    while (linea[columnas] != NULL) columnas++;
+    while (linea[columnas] != NULL) columnas++; // Cuenta la cantidad de columnas (campos) en la linea
     return columnas;
 }
 
@@ -393,24 +393,24 @@ void buscarPorArtista(Map *mapaArtistas, char *artista) {
 
 void buscarPorBPM(List **BPMArray, char *velocidad) {
     List *lista = NULL;
-    if (strcmp(velocidad, "LENTAS") == 0) {
+    if (strcmp(velocidad, "LENTAS") == 0) { // Va comparando la velocidad ingresada con las posibles opciones
         lista = BPMArray[LENTAS];
     } else if (strcmp(velocidad, "MODERADAS") == 0) {
         lista = BPMArray[MODERADAS];
     } else if (strcmp(velocidad, "RAPIDAS") == 0) {
         lista = BPMArray[RAPIDAS];
-    } else {
+    } else { // Si no se ingreso una velocidad valida
         puts("No se ingreso una velocidad valida.");
         return;
     } 
-    if (firstList(lista) == NULL) {
+    if (firstList(lista) == NULL) { // Si la lista es NULL, significa que no hay canciones a esa velocidad
         printf("No existen canciones a velocidad \"%s\" \n", velocidad);
         return;
     }
 
 
     Song *cancion = NULL;
-    printf("Canciones con velocidad \"%s\":", velocidad);
+    printf("Canciones con velocidad \"%s\":", velocidad); // Si existen canciones a esa velocidad, se imprimen
     int i = 0;
     for(cancion = firstList(lista) ; cancion != NULL ; cancion = nextList(lista)) { // Recorre la lista hasta que el elemento actual sea nulo (que se alcance el final de la lista)
         printearCancion(cancion);
